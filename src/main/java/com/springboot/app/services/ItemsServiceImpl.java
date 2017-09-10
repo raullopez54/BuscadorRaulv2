@@ -48,7 +48,6 @@ public class ItemsServiceImpl implements ItemsService
    */
   private List<ItemsModel> replaceSearch(ItemsModel obj, List<ItemsModel> x)
   {
-
     for (ItemsModel item : x)
     {
       item.setNombre(this.replaceStr(obj.getNombre(), item.getNombre()));
@@ -78,13 +77,14 @@ public class ItemsServiceImpl implements ItemsService
 
     Matcher x = this.pattern(obj).matcher(item);
 
-    if (x.find())
+    if (x.find() && (obj.length() > 0))
     {
       replace = replace.substring(x.start(), x.end());
+      replace = this.pattern(obj).matcher(item)
+              .replaceAll(this.patternReplaceHtml(replace));
     }
 
-    return this.pattern(obj).matcher(item)
-            .replaceAll(this.patternReplaceHtml(replace));
+    return replace;
   }
 
 
@@ -97,7 +97,7 @@ public class ItemsServiceImpl implements ItemsService
    */
   private Pattern pattern(String str)
   {
-    return Pattern.compile("(?i)" + str);
+    return Pattern.compile("(?i)" + str.replaceAll("\\s", ""));
   }
 
 

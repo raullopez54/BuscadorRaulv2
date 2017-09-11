@@ -5,10 +5,10 @@
   min-height: 100vh;
   overflow: hidden;
   background-color: rgba(15, 15, 15, 1);
-  background-image: url('../ng-img/spring.png'), url('../ng-img/angularjs.png');
+  background-image: url('http://pngimg.com/uploads/olives/olives_PNG14320.png'), url('http://deoleo.com/wp-content/uploads/2012/11/shutt_49456645-transp.png');
   background-position: right top, center center;
   background-repeat: no-repeat, no-repeat;
-  background-size: auto 200px, 600px auto;
+  background-size: auto 100px, 600px auto;
 }
 
 

@@ -26,4 +26,34 @@ public interface ItemsMapper
    */
   public List<ItemsModel> searchItemsMapper(ItemsModel obj) throws Exception;
 
+
+  /**
+   * INSERTA UN NUEVO ITEM.
+   *
+   * @param obj Objeto tipo ItemsModel.
+   *
+   * @return Exito o fracaso de la consulta.
+   */
+  public int insertItemsMapper(ItemsModel obj) throws Exception;
+
+
+  /**
+   * ACTUALIZA UN ITEM REFERENCIADO POR SU ID.
+   *
+   * @param obj Objeto tipo ItemsModel.
+   *
+   * @return Exito o fracaso de la consulta.
+   */
+  public int updateItemsMapper(ItemsModel obj) throws Exception;
+
+
+  /**
+   * ELIMINA UN ITEM REFERENCIADO POR SU ID.
+   *
+   * @param obj Objeto tipo ItemsModel.
+   *
+   * @return Exito o fracaso de la consulta.
+   */
+  public int deleteItemsMapper(ItemsModel obj) throws Exception;
+
 }

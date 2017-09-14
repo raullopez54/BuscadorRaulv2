@@ -54,35 +54,59 @@ public class ItemsServiceImpl implements ItemsService
 	 //Creo una lista nueva
 	 List<ItemsModel> busquedaItems = new ArrayList<ItemsModel>();
 	 
-	 //Cadena introducida para buscar
-	 String buscado = obj.getNombre();
+	 //Cadena introducida para buscar nombre
+	 String buscadoNombre = obj.getNombre();
 	 //Cadena introducida para buscar limpia
-	 String buscadoUTF = UtilStr.replaceChar(buscado);
+	 String buscadoNombreUTF = UtilStr.replaceChar(buscadoNombre);
 	 
-	 System.out.println("Cadena buscado " + buscado );
-	 System.out.println("Cadena buscado " + buscadoUTF );
+	//Cadena introducida para buscar nombre
+    String buscadoDescrip = obj.getDescripcion();
+    //Cadena introducida para buscar limpia
+    String buscadoDescripUTF = UtilStr.replaceChar(buscadoDescrip);
+	 
+	 System.out.println("Cadena buscado " + buscadoNombre );
+	 System.out.println("Cadena buscado " + buscadoNombreUTF );
+	 System.out.println("Cadena buscado " + buscadoDescrip );
+	 System.out.println("Cadena buscado " + buscadoDescripUTF );
 	   
     for (ItemsModel item : x)
     {
     	
-    	String original = item.getNombre();
-    	String originalUTF = UtilStr.replaceChar(original);
-   	    System.out.println("Cadena original " + originalUTF);
-   	    
-   	    Matcher match = UtilStr.compareStr(buscadoUTF, originalUTF);
-    	
-      
-      if (match.find() && (buscadoUTF.length() > 0))
-      {
-    	  System.out.println("Cadena " + originalUTF);
-    	  System.out.println("Longitud " + originalUTF.length() );
-    	  //subrayo
-    	  originalUTF = originalUTF.substring(match.start(), match.end());
-  		  item.setNombre(UtilStr.pattern(buscadoUTF).matcher(originalUTF).replaceAll(UtilStr.patternReplaceHtml(original)));
-    	  
-  		  //añado a la lista
-    	  busquedaItems.add(item);
-      }
+			String originalNombre = item.getNombre();
+			String originalNombreUTF = UtilStr.replaceChar(originalNombre);
+			System.out.println("Cadena original nombre" + originalNombreUTF);
+
+			Matcher match = UtilStr.compareStr(buscadoNombreUTF, originalNombreUTF);
+
+			if (match.find() && (buscadoNombreUTF.length() > 0)) {
+				System.out.println("Cadena Nombre" + originalNombreUTF);
+				System.out.println("Longitud Nombre" + originalNombreUTF.length());
+				// subrayo
+				originalNombreUTF = originalNombreUTF.substring(match.start(), match.end());
+				item.setNombre(UtilStr.pattern(buscadoNombreUTF).matcher(originalNombreUTF)
+						.replaceAll(UtilStr.patternReplaceHtml(originalNombre)));
+
+				// añado a la lista
+				busquedaItems.add(item);
+			}
+
+			String originalDescrip = item.getDescripcion();
+			String originalDescripUTF = UtilStr.replaceChar(originalDescrip);
+			System.out.println("Cadena original " + originalDescripUTF);
+
+			Matcher matchDescrip = UtilStr.compareStr(buscadoDescripUTF, originalDescripUTF);
+
+			if (matchDescrip.find() && (buscadoDescripUTF.length() > 0)) {
+				System.out.println("Cadena " + originalDescripUTF);
+				System.out.println("Longitud " + originalDescripUTF.length());
+				// subrayo
+				originalDescripUTF = originalDescripUTF.substring(match.start(), match.end());
+				item.setDescripcion(UtilStr.pattern(buscadoDescripUTF).matcher(originalDescripUTF)
+						.replaceAll(UtilStr.patternReplaceHtml(originalDescrip)));
+
+				// añado a la lista
+				busquedaItems.add(item);
+			}
       
       
     	

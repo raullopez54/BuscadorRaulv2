@@ -116,5 +116,74 @@ public class ItemsServiceImpl implements ItemsService
     return busquedaItems;
   }
   
+  //******************INSERTAR 1 FILA*************************************************
+  
+  @Override
+  public int insertItemsService(ItemsModel obj) throws Exception
+  {
+    int x = iMapper.insertItemsMapper(obj);
+    System.out.println("El resultado de Service insert es ----> " + x );
+    return x;
+  }
+  
+  //*************UPDATE 1 FILA********************************************************
+  
+  @Override
+  public int updateItemsService(ItemsModel obj) throws Exception
+  {
+	   
+    int x = iMapper.updateItemsMapper(obj);
+    System.out.println("El resultado de Service update es ----> " + x );
+    return x;
+  }
+  
+//*************DELETE 1 FILA********************************************************
+  
+  @Override
+  public int deleteItemsService(ItemsModel obj) throws Exception
+  {
+    int x = iMapper.deleteItemsMapper(obj);
+    System.out.println("El resultado de Service delete es ----> " + x );
+    return x;
+  }
+  
+//******************INSERTAR 1 LISTA*************************************************
+  
+  @Override
+  public int insertListService(List<ItemsModel> listObj) throws Exception
+  {
+	  
+	int cont = 0;
+
+	for (ItemsModel obj : listObj) {
+		 
+		 int x = iMapper.insertItemsMapper(obj);
+		 System.out.println("El resultado de Service insert es ----> " + x );
+		 cont++;
+	 }
+	  
+    return cont;
+  }
+  
+  //*************UPDATE 1 LISTA********************************************************
+  
+  /*@Override
+  public int updateListService(ItemsModel obj) throws Exception
+  {
+    int x = iMapper.updateItemsMapper(obj);
+    System.out.println("El resultado de Service update es ----> " + x );
+    return x;
+  }
+  
+//*************DELETE 1 LISTA********************************************************
+  
+  @Override
+  public int deleteListService(ItemsModel obj) throws Exception
+  {
+    int x = iMapper.deleteItemsMapper(obj);
+    System.out.println("El resultado de Service delete es ----> " + x );
+    return x;
+  }*/
+  
 
 }

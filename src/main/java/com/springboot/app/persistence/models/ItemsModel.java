@@ -8,6 +8,7 @@ public class ItemsModel
   private String nombre;
   private String descripcion;
   private String url;
+  private int fila;
 
 
   public int getId()
@@ -56,6 +57,16 @@ public class ItemsModel
   {
     this.url = url;
   }
+
+
+public int getFila() {
+	return fila;
+}
+
+
+public void setFila(int fila) {
+	this.fila = fila;
+}
 
 
 }
